@@ -102,11 +102,13 @@ pingCheckCt=0
 #
 # Replacement Fields
 #
+
+# Fields List
 replacementFields="hostname,domainname,root_password,ftps_command_port,ftps_data_port,ssh_port,mariadb_port"
 replacementFields="${replacementFields},org_country,org_state,org_name,org_abbr,org_locality"
 replacementFields="${replacementFields},org_organization,org_unit,org_email,client_hostname,client_ipaddr,client_email"
 
-#
+# Field Validation Patterns
 field_hostname_pattern='^[a-zA-Z][-a-zA-Z0-9]\{1,62\}$'
 field_domainname_pattern='^[a-z][-a-zA-Z0-9.]*[.][a-z]\{2,6\}$'
 field_ipaddr_pattern='^\(\([0-9]\|[1-9][0-9]\|1[0-9][0-9]\|2[0-4][0-9]\|25[0-5]\)\.\)\{3\}\([0-9]\|[1-9][0-9]\|1[0-9][0-9]\|2[0-4][0-9]\|25[0-5]\)$'
@@ -114,6 +116,7 @@ field_email_pattern='^[a-zA-Z][a-zA-Z0-9_-]\+@[a-zA-Z][a-zA-Z0-9.]*[.][a-z]\{2,6
 field_port_pattern='^[1-9][0-9][0-9][0-9][0-9]\?$'
 field_password_pattern='^[-a-zA-Z0-9_.,;:=#%^()]\{6,128\}$'
 
+# Field Requirements Descriptions
 field_hostname_valid_desc='Alphanumeric characters, 1-62 in length'
 field_domainname_valid_desc='Alphanumeric and period characters'
 field_ipaddr_valid_desc='An IPv4 address (<0-255>.<0-255>.<0-255>.<0-255>)'
@@ -121,7 +124,8 @@ field_email_valid_desc='A valid email address (<name>@<domain>)'
 field_port_valid_desc='A port address (1000-99999)'
 field_password_valid_desc="From 6 to 128 of the following cahracters; '-a-zA-Z0-9_.,;:=#%^()'"
 
-# replacement token,data type,blank allowed,reentry required,validationPattern,Desc
+# Field Definitions
+# 	replacement token,data type,blank allowed,reentry required,validationPattern,Desc
 field_hostname="{{hostname}},string,N,N,hostname,System host name"
 field_domainname="{{domainname}},string,N,N,domainname,System domain name"
 field_root_password="{{root_password}},string,N,Y,password,Root password"

@@ -34,7 +34,7 @@ export maudPythonFolder="${maudRootFolder}/python"
 export maudPythonLibraryFolder="${maudRootFolder}/python/maudelib"
 export maudImagesFolder="${maudRootFolder}/images"
 export maudBackgroundsFolder="${maudImagesFolder}/backgrounds"
-export maudBackgroundDefaultName="MAUDE-logo-1300x1300.png"
+export maudBackgroundDefaultName="MAUDE-MI-logo-1300x1300.png"
 export maudBackgroundDefaultFile="${maudBackgroundsFolder}/${maudBackgroundDefaultName}"
 
 if [ $(echo "${PYTHONPATH}" | grep -c 'maudelib') -eq 0 ] ; then
