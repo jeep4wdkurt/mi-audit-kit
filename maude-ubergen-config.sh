@@ -161,7 +161,8 @@ IniVarRead() {
 	local varValue=$(cat "${iniFile}" |
 						tr -d '\r' |
 						grep "^[[:blank:]]*${iniField}[[:blank:]]*=" |
-						sed -e "s~^[ \t]*${iniField}[ \t]*=[ \t]*\x22\([^\x22]*\)\x22.*~\1~")
+						sed -e 's~^[ \t]*'"${iniField}"'[ \t]*=[ \t]*\x22\([^\x22]*\)\x22.*~\1~' \
+						    -e 's~^[ \t]*'"${iniField}"'[ \t]*=[ \t]*\([0-9]\+\)\([ \t].*$\|$\)~\1~' )
 	errCode=$?
 	[ $errCode -ne 0 ] && barfe "IniVarRead.Error: Problem getting field '${iniField}' from file '${iniFile}'"	
 	
