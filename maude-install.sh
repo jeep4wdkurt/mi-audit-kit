@@ -98,10 +98,13 @@ maudePrerequsitesInstall() {
 	# Install Goon libraries
 	goonLibsInstalled=$($pipCommand list | grep -c 'google-api-python-client')
 	if [ $goonLibsInstalled -eq 0 ] ; then
+	
+		# Ubuntu SUX. No clue why it doesn't include testresources python lib, when Debian does.
+		local osDependentLibs= ; [ "${OS_FLAVOR}" == "Ubuntu" ] && osDependentLibs="testresources"
+
 		barfs "MAUDE Prerequisite Goon Libraries installing..."
-		$pipCommand install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
-		errCode=$?
-		[ $errCode -ne 0 ] && barfe "maudePrerequsitesInstall: Problem installing Goon libraries."
+		$pipCommand install --upgrade $osDependentLibs google-api-python-client google-auth-httplib2 google-auth-oauthlib
+		errCode=$? ; [ $errCode -ne 0 ] && barfe "maudePrerequsitesInstall: Problem installing Goon libraries."
 		barfs "MAUDE Prerequisite Goon Libraries install complete."
 	fi
 }
