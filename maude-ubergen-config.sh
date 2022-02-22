@@ -624,8 +624,8 @@ maudeUbergenPrerequisites() {
 
 	barfds "maudeUbergenPrerequisites.Entry()"
 
-	# Need net-tools for ping
-	if [ "${OS_FLAVOR}" != "Cygwin" ] ; then
+	# Need net-tools for ping on Debian.  Cywgin and Ubuntu come with it installed
+	if [ "${OS_FLAVOR}" == "Debian" ] ; then
 		nettoolsInstalled=$(dpkg-query --list "*${nettoolsPackage}*" | grep -c "^[a-z]i[ \t]*${nettoolsPackage}[ \t].*")
 		errCode=$? ; [ $errCode -ne 0  ] && barfe "maudeUbergenPrerequisites.Error: Problem checking for package '${nettoolsPackage}'" 
 		if [ $nettoolsInstalled -eq 0 ] ; then
@@ -635,7 +635,7 @@ maudeUbergenPrerequisites() {
 			barf "Installing ${nettoolsPackage} complete."
 		fi
 	fi
-	
+
 	barfds "maudeUbergenPrerequisites.Exit"
 }
 
