@@ -19,7 +19,7 @@
 prognm="maude-desktop-setup.sh"
 
 maudRootFolder="/usr/sbin/mi-audit"
-maudImagesFolder="${maudRoot}/images"
+maudImagesFolder="${maudRootFolder}/images"
 maudBackgroundsFolder="${maudImagesFolder}/backgrounds"
 maudBackgroundDefaultName="MAUDE-MI-logo-1300x1300.png"
 maudBackgroundDefaultFile="${maudBackgroundsFolder}/${maudBackgroundDefaultName}"
