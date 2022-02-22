@@ -55,7 +55,8 @@ dmgrName="Unknown"
 [ $dmgrLight -gt 0 ] && dmgrName="Light (xfc)"
 [ $dmgrGnome -gt 0 ] && dmgrName="GNOME"
 
-echo "Display Manager is: ${dmgrName}"
+echo "Display Manager : ${dmgrName}"
+echo "Background URI  : '${maudBackgroundDefaultUri}'"
 
 #
 # Determine if MAUDE wallpaper has already been set once.
@@ -95,16 +96,20 @@ if [ $backgroundAlreadySet -eq 0 ] ; then
 	if [ $dmgrGnome -gt 0 ] ; then
 
 		# Set background
+		echo "Setting ${dmgrName} background image..."
 		gsettings set org.gnome.desktop.background picture-uri "${maudBackgroundDefaultUri}"
 		errCode=$? ; [ $errCode -ne 0 ] &&
 			{ echo "${prognm//.sh/}.Error: Can't set ${dmgrName} desktop background file '${maudBackgroundDefaultUri}'" ;
 			  exit 1; }
+		echo "Setting ${dmgrName} background complete."
 			  
 		# Set background style
+		echo "Setting ${dmgrName} background style..."
 		gsettings set org.gnome.desktop.background picture-options 'scaled'
 		errCode=$? ; [ $errCode -ne 0 ] &&
 			{ echo "${prognm//.sh/}.Error: Can't set ${dmgrName} desktop background style '${maudBackgroundDefaultUri}'" ;
 			  exit 1; }
+		echo "Setting ${dmgrName} background style complete."
 	fi
 
 	# Indicate MAUDE background installed status in MAUDE status tracking file
