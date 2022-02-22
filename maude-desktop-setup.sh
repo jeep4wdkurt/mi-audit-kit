@@ -18,15 +18,16 @@
 
 prognm="maude-desktop-setup.sh"
 
-maudImagesFolder="${maudRootFolder}/images"
+maudRootFolder="/usr/sbin/mi-audit"
+maudImagesFolder="${maudRoot}/images"
 maudBackgroundsFolder="${maudImagesFolder}/backgrounds"
 maudBackgroundDefaultName="MAUDE-MI-logo-1300x1300.png"
 maudBackgroundDefaultFile="${maudBackgroundsFolder}/${maudBackgroundDefaultName}"
-maudBackgroundDefaultUri="file://${maudBackgroundDefaultFile}"
 
 maudUserSharedFolder="/usr/share/mi-audit"
 maudUserSharedBackgroundsFolder="${maudUserSharedFolder}/backgrounds"
 maudUserSharedBackgroundDefaultFile="${maudUserSharedBackgroundsFolder}/${maudBackgroundDefaultName}"
+maudUserSharedBackgroundDefaultUri="file://${maudUserSharedBackgroundDefaultFile}"
 
 maudUserFolderPerms=755
 maudUserLocalFolder="${HOME}/mi-audit"
@@ -56,7 +57,7 @@ dmgrName="Unknown"
 [ $dmgrGnome -gt 0 ] && dmgrName="GNOME"
 
 echo "Display Manager   : ${dmgrName}"
-echo "Background URI    : '${maudBackgroundDefaultUri}'"
+echo "Background URI    : '${maudUserSharedBackgroundDefaultUri}'"
 
 #
 # Determine if MAUDE wallpaper has already been set once.
@@ -100,9 +101,9 @@ if [ $backgroundAlreadySet -eq 0 ] ; then
 
 		# Set background
 		echo "Setting ${dmgrName} background image..."
-		gsettings set org.gnome.desktop.background picture-uri "${maudBackgroundDefaultUri}"
+		gsettings set org.gnome.desktop.background picture-uri "${maudUserSharedBackgroundDefaultUri}"
 		errCode=$? ; [ $errCode -ne 0 ] &&
-			{ echo "${prognm//.sh/}.Error: Can't set ${dmgrName} desktop background file '${maudBackgroundDefaultUri}'" ;
+			{ echo "${prognm//.sh/}.Error: Can't set ${dmgrName} desktop background file '${maudUserSharedBackgroundDefaultUri}'" ;
 			  exit 1; }
 		echo "Setting ${dmgrName} background complete."
 			  
@@ -110,7 +111,7 @@ if [ $backgroundAlreadySet -eq 0 ] ; then
 		echo "Setting ${dmgrName} background style..."
 		gsettings set org.gnome.desktop.background picture-options 'scaled'
 		errCode=$? ; [ $errCode -ne 0 ] &&
-			{ echo "${prognm//.sh/}.Error: Can't set ${dmgrName} desktop background style '${maudBackgroundDefaultUri}'" ;
+			{ echo "${prognm//.sh/}.Error: Can't set ${dmgrName} desktop background style '${maudUserSharedBackgroundDefaultUri}'" ;
 			  exit 1; }
 		echo "Setting ${dmgrName} background style complete."
 	fi
