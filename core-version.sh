@@ -19,4 +19,4 @@
 #
 # Version
 #
-maudeVersion='01.00.295'						; export maudeVersion
+maudeVersion='01.00.296'						; export maudeVersion

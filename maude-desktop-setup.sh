@@ -55,8 +55,8 @@ dmgrName="Unknown"
 [ $dmgrLight -gt 0 ] && dmgrName="Light (xfc)"
 [ $dmgrGnome -gt 0 ] && dmgrName="GNOME"
 
-echo "Display Manager : ${dmgrName}"
-echo "Background URI  : '${maudBackgroundDefaultUri}'"
+echo "Display Manager   : ${dmgrName}"
+echo "Background URI    : '${maudBackgroundDefaultUri}'"
 
 #
 # Determine if MAUDE wallpaper has already been set once.
@@ -66,6 +66,9 @@ backgroundAlreadySet=0
 	[ $(cat "${maudUserLocalStatusFile}" |
 		grep '^[ \t]*MAUDE_BACKGROUND_INITIALIZED[ \t]*=[ \t]*1.*$' |wc -l) -gt 0 ] &&
 	backgroundAlreadySet=1
+
+echo "MAUDE Status File : '${maudUserLocalStatusFile}'"
+echo "Background Set    : ${backgroundAlreadySet}"
 
 #
 # Change Wallpaper (if never installed before)
