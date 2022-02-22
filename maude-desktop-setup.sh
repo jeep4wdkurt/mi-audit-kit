@@ -36,6 +36,11 @@ maudUserLocalStatusFile="${maudUserLocalFolder}/.maude_status"
 xfceDesktopBackgroundImageParam="/backdrop/screen0/monitorVirtual1/workspace0/last-image"
 xfceDesktopBackgroundStyleParam="/backdrop/screen0/monitorVirtual1/workspace0/image-style"
 
+optDebug=
+[ "${MAUDE_DEBUG}" != "" ] && [ "${MAUDE_DEBUG}" -ne 0 ] && optDebug=1
+
+barfd() { [ $optDebug ] && echo "$1" ; }
+
 #
 # Create MAUDE User Local folder, if needed
 #
@@ -56,8 +61,8 @@ dmgrName="Unknown"
 [ $dmgrLight -gt 0 ] && dmgrName="Light (xfc)"
 [ $dmgrGnome -gt 0 ] && dmgrName="GNOME"
 
-echo "Display Manager   : ${dmgrName}"
-echo "Background URI    : '${maudUserSharedBackgroundDefaultUri}'"
+barfd "Display Manager   : ${dmgrName}"
+barfd "Background URI    : '${maudUserSharedBackgroundDefaultUri}'"
 
 #
 # Determine if MAUDE wallpaper has already been set once.
@@ -68,8 +73,8 @@ backgroundAlreadySet=0
 		grep '^[ \t]*MAUDE_BACKGROUND_INITIALIZED[ \t]*=[ \t]*1.*$' |wc -l) -gt 0 ] &&
 	backgroundAlreadySet=1
 
-echo "MAUDE Status File : '${maudUserLocalStatusFile}'"
-echo "Background Set    : ${backgroundAlreadySet}"
+barfd "MAUDE Status File : '${maudUserLocalStatusFile}'"
+barfd "Background Set    : ${backgroundAlreadySet}"
 
 #
 # Change Wallpaper (if never installed before)
@@ -100,20 +105,29 @@ if [ $backgroundAlreadySet -eq 0 ] ; then
 	if [ $dmgrGnome -gt 0 ] ; then
 
 		# Set background
-		echo "Setting ${dmgrName} background image..."
+		barfd "Setting ${dmgrName} background image..."
 		gsettings set org.gnome.desktop.background picture-uri "${maudUserSharedBackgroundDefaultUri}"
 		errCode=$? ; [ $errCode -ne 0 ] &&
 			{ echo "${prognm//.sh/}.Error: Can't set ${dmgrName} desktop background file '${maudUserSharedBackgroundDefaultUri}'" ;
 			  exit 1; }
-		echo "Setting ${dmgrName} background complete."
+		barfd "Setting ${dmgrName} background complete."
 			  
 		# Set background style
-		echo "Setting ${dmgrName} background style..."
+		barfd "Setting ${dmgrName} background style..."
 		gsettings set org.gnome.desktop.background picture-options 'scaled'
 		errCode=$? ; [ $errCode -ne 0 ] &&
 			{ echo "${prognm//.sh/}.Error: Can't set ${dmgrName} desktop background style '${maudUserSharedBackgroundDefaultUri}'" ;
 			  exit 1; }
-		echo "Setting ${dmgrName} background style complete."
+		barfd "Setting ${dmgrName} background style complete."
+
+		# Set background color
+		barfd "Setting ${dmgrName} background color..."
+		gsettings set org.gnome.desktop.background primary-color '#4f08d1'	# Purple
+		errCode=$? ; [ $errCode -ne 0 ] &&
+			{ echo "${prognm//.sh/}.Error: Can't set ${dmgrName} desktop background color '${maudUserSharedBackgroundDefaultUri}'" ;
+			  exit 1; }
+		barfd "Setting ${dmgrName} background color complete."
+
 	fi
 
 	# Indicate MAUDE background installed status in MAUDE status tracking file
