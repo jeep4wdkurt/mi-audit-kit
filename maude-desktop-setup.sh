@@ -36,6 +36,11 @@ maudUserLocalStatusFile="${maudUserLocalFolder}/.maude_status"
 xfceDesktopBackgroundImageParam="/backdrop/screen0/monitorVirtual1/workspace0/last-image"
 xfceDesktopBackgroundStyleParam="/backdrop/screen0/monitorVirtual1/workspace0/image-style"
 
+# Bacground colors
+colorPurple='#4f08d1'	# Purple
+colorBlue='#1434be' 	# Blue
+colorYellow='#fdf65d' 	# Yellow
+
 optDebug=
 [ "${MAUDE_DEBUG}" != "" ] && [ "${MAUDE_DEBUG}" -ne 0 ] && optDebug=1
 
@@ -122,7 +127,7 @@ if [ $backgroundAlreadySet -eq 0 ] ; then
 
 		# Set background color
 		barfd "Setting ${dmgrName} background color..."
-		gsettings set org.gnome.desktop.background primary-color '#4f08d1'	# Purple
+		gsettings set org.gnome.desktop.background primary-color "${colorBlue}"
 		errCode=$? ; [ $errCode -ne 0 ] &&
 			{ echo "${prognm//.sh/}.Error: Can't set ${dmgrName} desktop background color '${maudUserSharedBackgroundDefaultUri}'" ;
 			  exit 1; }
@@ -130,7 +135,7 @@ if [ $backgroundAlreadySet -eq 0 ] ; then
 
 	fi
 
-	# Indicate MAUDE background installed status in MAUDE status tracking file
+	# Indicate MAUDE background installed in MAUDE status tracking file
 	[ -f "${maudUserLocalStatusFile}" ] && sed -i -e '/MAUDE_BACKGROUND_INITIALIZED/d' "${maudUserLocalStatusFile}"
 	echo "MAUDE_BACKGROUND_INITIALIZED=1"	>>"${maudUserLocalStatusFile}"
 	

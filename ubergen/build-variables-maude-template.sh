@@ -52,8 +52,6 @@ ug_apache_log_level='debug'
 # Server Info
 #
 ug_server_name="{{hostname}}"
-ug_server_database="maud"
-ug_server_webcore="maud"
 ug_server_domain="{{domainname}}"
 ug_server_desc="Michigan Audit Forensics Server"
 
@@ -66,6 +64,9 @@ ug_org_unit="{{org_organization}}"
 ug_org_email="{{org_email}}"
 ug_org_abbr="{{org_abbr}}"
 
+ug_server_database="{{org_abbr}}"
+ug_server_webcore="{{org_abbr}}"
+
 #
 # Ports
 #
@@ -73,7 +74,7 @@ ug_ftps_port={{ftps_command_port}}                      # Secure FTP command por
 ug_ftps_data_port={{ftps_data_port}}                    # Secure FTP data port
 ug_ssh_port={{ssh_port}}                                # Secure Shell (SSH) port
 ug_db_port={{mariadb_port}}                             # MariaDB Database port
-ug_ocsp_port=3381                                       # OCSP port
+ug_ocsp_port={{ocsp_port}}                              # OCSP port
 
 #
 # SSL
