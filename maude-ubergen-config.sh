@@ -54,10 +54,11 @@ source "${kitProgFolder}/core-time.sh"							# MAUDE Time routines
 # Folders
 [ "${maudLocalUbergenFolder}" == "" ] 			&& barfe "${prognm}.Error: [maudLocalUbergenFolder] is not defined"
 [ "${maudUbergenFolder}" == "" ]				&& barfe "${prognm}.Error: [maudUbergenFolder] is not defined"
+[ "${ubergenFolder}" == "" ]					&& barfe "${prognm}.Error: [ubergenFolder] is not defined"
 
 # Files
 defaultLogFile="${maudLogFolder}/${prognm//.sh/}-$(date +%Y.%m.%d-%H.%M.%S).log"
-ubergenConfigureScript="${maudUbergenFolder}/ug-config.sh"
+ubergenConfigureScript="${ubergenFolder}/ug-configure.sh"
 
 [ "${maudUbergenBuildValuesDefault}" == "" ] 	&& barfe "${prognm}.Error: [maudUbergenBuildValuesDefault] is not defined"
 [ "${maudUbergenBuildValuesLocal}" == "" ] 		&& barfe "${prognm}.Error: [maudUbergenBuildValuesLocal] is not defined"
