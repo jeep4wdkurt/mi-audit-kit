@@ -105,7 +105,7 @@ maudeUbergenRun() {
 
 	# Create LAMPPP invironment
 	cd "${ubergenFolder}"
-	./ubergen.sh $logSeparateFlag $verboseFlag $debugFlag $traceFlag $logFlag					
+	./ubergen.sh -W $logSeparateFlag $verboseFlag $debugFlag $traceFlag $logFlag					
 	errCode=$? ; [ $errCode -ne 0 ] && barfee "Problem running UberGen.  Crap."
 
 	# Configure standard database users
@@ -170,7 +170,7 @@ maudeUbergenConfig() {
 	# Configure UberGen
 	"${ubergenConfigureScript}" $verboseFlag $debugFlag $traceFlag $logFlag -I "${maudUbergenBuildValues}"
 	errCode=$? ; [ $errCode -ne 0 ] && barfee "UberGen configuration exited, unsuccessfully."
-	
+
 	# Run UberGen
 	maudeUbergenRun
 

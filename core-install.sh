@@ -327,7 +327,7 @@ ubergenKeycodeDecode() {
 	# decode key code
 	ubergenKeycode=$(cat "${maudUbergenKeyFileSpec}" |
 					 $gpgCommand --quiet --batch --decrypt --output - --passphrase "${keyPass}")
-	errCode=$? ; [ $errCode -ne 0 ] && barfe "ubergenKeycodeDecode.EncryptError: Problem decrypting UberGen key code."
+	errCode=$? ; [ $errCode -ne 0 ] && barfee "Problem decrypting UberGen key code."
 	export ubergenKeycode;
 	
 	ubergenKeycodeStatus=0 ; export ubergenKeycodeStatus;
