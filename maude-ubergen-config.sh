@@ -154,7 +154,8 @@ maudeUbergenConfig() {
 	# Validations
 	[ "${ubergenMinimumVersion}" == "" ]	&& barfee "[ubergenMinimumVersion] is not defined"
  	[ "${maudUbergenBuildValues}" == "" ]	&& barfee "[maudUbergenBuildValues] is not defined"
-	[ "${maudUbergenBuildValues}" ] && barfee "MAUDE UberGen initialization paramters file '${maudUbergenBuildValues}' does not exist."
+	[ ! -f "${maudUbergenBuildValues}" ] &&
+						barfee "MAUDE UberGen initialization parameters file '${maudUbergenBuildValues}' does not exist."
 
 	# Delete old version UberGen, if needed
 	ubergenProjectUninstall "${ubergenMinimumVersion}"
