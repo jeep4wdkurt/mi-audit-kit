@@ -64,7 +64,7 @@ ubergenConfigureScript="${maudUbergenFolder}/ug-config.sh"
 [ "${maudUbergenBuildTemplate}" == "" ] 		&& barfe "${prognm}.Error: [maudUbergenBuildTemplate] is not defined"
 
 maudUbergenBuildValues="${maudUbergenBuildValuesDefault}"
-[ "${maudUbergenBuildValuesLocal}" != "" ] && maudUbergenBuildValues="${maudUbergenBuildValuesLocal}"
+[ -f "${maudUbergenBuildValuesLocal}" ] && maudUbergenBuildValues="${maudUbergenBuildValuesLocal}"
 
 # Constants
 ubergenMinimumVersion="01.04"
