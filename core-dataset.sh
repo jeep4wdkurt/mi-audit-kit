@@ -5,7 +5,7 @@
 #
 #   Description:
 #
-#       Routines specific to datasets
+#       Routines and data for datasets
 #
 #   Datasets:
 #       Dataset Date  Source  Goon Library  Add Date
@@ -25,6 +25,7 @@
 #       2022-06-01     002    maudelib001   2022.09.03
 #       2022-07-01     002    maudelib002   2022.09.03
 #       2022-08-01     002    maudelib001   2022.08.28
+#       2022-09-01     002    maudelib002   2022.09.16
 #
 #   Data Sources:
 #       001         Unknown    http://69.64.83.144/~mi/download/
@@ -35,6 +36,7 @@
 #
 #   History:
 #       Date        Version  Author         Desc
+#       2022.09.16  01.06    Kurt Schulte   Add 2022-09-01
 #       2022.09.13  01.03    Kurt Schulte   Add reference dataset fields
 #       2022.09.03  01.02    Kurt Schulte   Add 2022-01-01, 2022-03-01, 2022-04-01, 2022-05-01, 2022-06-01 datasets
 #       2022.08.28  01.01    Kurt Schulte   Add 2022-08-01 dataset
@@ -49,7 +51,7 @@ datasetList="2000-01-01,2016-09-01"
 datasetList="${datasetList},2019-01-01"
 datasetList="${datasetList},2020-03-01,2020-06-01,,2020-10-01,2020-11-01,2020-12-01"
 datasetList="${datasetList},2021-04-01,2021-01-01"
-datasetList="${datasetList},2022-01-01,2022-02-01,2022-03-01,2022-04-01,2022-05-01,2022-06-01,2022-07-01,2022-08-01"
+datasetList="${datasetList},2022-01-01,2022-02-01,2022-03-01,2022-04-01,2022-05-01,2022-06-01,2022-07-01,2022-08-01,2022-09-01"
 datastoreList="common,specific"
 datasetQvfObfuscationName="Corn-Data"
 datasetHistoryObfuscationName="Corn-History"
@@ -73,6 +75,7 @@ dataset220501_goonKey="1d6xQa-7Z9ivlV6p5_5Fk896bZuj6YwdV"		# https://drive.googl
 dataset220601_goonKey="1Kz3uXQM_6lw4HhFY1sTnvSUKsQQIAGp8"		# https://drive.google.com/file/d/1Kz3uXQM_6lw4HhFY1sTnvSUKsQQIAGp8/view?usp=sharing
 dataset220701_goonKey="1k_JXp6h-09jetHcEbRpyIMhV_LgV2dmM"		# https://drive.google.com/file/d/1k_JXp6h-09jetHcEbRpyIMhV_LgV2dmM/view?usp=sharing
 dataset220801_goonKey="1J7C7plGUzrlDc0hNkoAmQn8p7JvxteVu"		# https://drive.google.com/file/d/1J7C7plGUzrlDc0hNkoAmQn8p7JvxteVu/view?usp=sharing
+dataset220901_goonKey="1cO5lmI3e1xhPKE2_lvY1IJEPKzZL0U_S"		# https://drive.google.com/file/d/1cO5lmI3e1xhPKE2_lvY1IJEPKzZL0U_S/view?usp=sharing
 datasethist160901_goonKey="1z9PfDtNxccRdjoWm7eN3nqAXvgb8CXxD"	# https://drive.google.com/file/d/1z9PfDtNxccRdjoWm7eN3nqAXvgb8CXxD/view?usp=sharing
 datasethist190101_goonKey="1wx5_xMTHKbq_LbYZkYBFaACcugxVB1P8"	# https://drive.google.com/file/d/1wx5_xMTHKbq_LbYZkYBFaACcugxVB1P8/view?usp=sharing
 datasethist200301_goonKey="1jlEcQS6xeF_llPB29CrEYQpTrx-zdQyb"	# https://drive.google.com/file/d/1jlEcQS6xeF_llPB29CrEYQpTrx-zdQyb/view?usp=sharing
@@ -90,6 +93,7 @@ datasethist220501_goonKey="1kKY7VnSUTkrm-G86gvMlsQC4nXPo_nup"	# https://drive.go
 datasethist220601_goonKey="1QbXmDqwdLbR_8G_Rw_aY2TiDQtrBtYMv"	# https://drive.google.com/file/d/1QbXmDqwdLbR_8G_Rw_aY2TiDQtrBtYMv/view?usp=sharing
 datasethist220701_goonKey="1WZC3b3KnnwSO_nWqVUyPwoQ-pMq0pCoh"	# https://drive.google.com/file/d/1WZC3b3KnnwSO_nWqVUyPwoQ-pMq0pCoh/view?usp=sharing
 datasethist220801_goonKey="1AiIEmy08g1558IKWXkmKKJjS6C5mBOA9"	# https://drive.google.com/file/d/1AiIEmy08g1558IKWXkmKKJjS6C5mBOA9/view?usp=sharing
+datasethist220901_goonKey="1RJVI_BOo-Ypdu60S3SOe5MhiKZWN7Dr_"	# https://drive.google.com/file/d/1RJVI_BOo-Ypdu60S3SOe5MhiKZWN7Dr_/view?usp=sharing
 
 #  Validate a dataset ID (format yyyy-mm)
 #
