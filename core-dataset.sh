@@ -36,6 +36,7 @@
 #
 #   History:
 #       Date        Version  Author         Desc
+#       2022.09.18  01.07    Kurt Schulte   Add aggregate schema
 #       2022.09.16  01.06    Kurt Schulte   Add 2022-09-01
 #       2022.09.13  01.03    Kurt Schulte   Add reference dataset fields
 #       2022.09.03  01.02    Kurt Schulte   Add 2022-01-01, 2022-03-01, 2022-04-01, 2022-05-01, 2022-06-01 datasets
@@ -47,12 +48,14 @@
 # 
 # Constants
 #
-datasetList="2000-01-01,2016-09-01"
-datasetList="${datasetList},2019-01-01"
-datasetList="${datasetList},2020-03-01,2020-06-01,,2020-10-01,2020-11-01,2020-12-01"
+datasetList="2022-09-01,2022-08-01,2022-07-01,2022-06-01,2022-05-01,2022-04-01,2022-03-01,2022-02-01,2022-01-01"
 datasetList="${datasetList},2021-04-01,2021-01-01"
-datasetList="${datasetList},2022-01-01,2022-02-01,2022-03-01,2022-04-01,2022-05-01,2022-06-01,2022-07-01,2022-08-01,2022-09-01"
-datastoreList="common,specific"
+datasetList="${datasetList},2020-12-01,2020-11-01,2020-10-01,2020-06-01,2020-03-01"
+datasetList="${datasetList},2019-01-01"
+datasetList="${datasetList},2016-09-01,2000-01-01"
+datasetCurrent="2022-09-01"
+datasetPrior="2022-08-01"
+datastoreList="common,specific,aggregate"
 datasetQvfObfuscationName="Corn-Data"
 datasetHistoryObfuscationName="Corn-History"
 
@@ -193,7 +196,7 @@ DatasetList_Validate() {
 #
 # Validate a datatstore specification (common or specific)
 #		If valid, sets:
-#			datastoreType		- common or specific
+#			datastoreType		- common, specific, oir aggretage
 #			datastoreSchema		- schema to use for datastore
 #
 Datastore_Validate() {
@@ -210,5 +213,10 @@ Datastore_Validate() {
 		datastoreSchema="ma${datasetIdShort}"
 		datastoreTitle="Dataset ${datasetIdentifier}"
 		refDatastoreSchema="ma${refDatasetIdShort}"
+	fi
+	if [ "${datastoreType}" == "aggregate" ] ; then
+		datastoreSchema="maag"
+		datastoreTitle="aggregate"
+		refDatastoreSchema="maag"
 	fi
 }
