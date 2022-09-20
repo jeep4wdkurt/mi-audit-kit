@@ -36,6 +36,7 @@ export maudImagesFolder="${maudRootFolder}/images"
 export maudBackgroundsFolder="${maudImagesFolder}/backgrounds"
 export maudBackgroundDefaultName="MAUDE-MI-logo-1300x1300.png"
 export maudBackgroundDefaultFile="${maudBackgroundsFolder}/${maudBackgroundDefaultName}"
+export maudNetworkDataFolder="/mnt/audd"
 
 if [ $(echo "${PYTHONPATH}" | grep -c 'maudelib') -eq 0 ] ; then
 	if [ "${PYTHONPATH}" == "" ] ; then

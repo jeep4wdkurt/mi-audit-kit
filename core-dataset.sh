@@ -158,6 +158,7 @@ DatasetId_Validate() {
 	datasetReportFolder="${maudReportFolder}/${datasetIdentifier}"
 	datasetImportWorkFolder="${maudWorkFolder}/qvf-${datasetIdentifier}"
 	datasetLoadWorkFolder="${maudWorkFolder}/load-${datasetIdentifier}"
+	datasetNetworkReportFolder="${maudNetworkReportFolder}/${datasetIdentifier}"
 
 	# Installation
 	datasetName="EntireStateVoters-${datasetIdentifier}"
