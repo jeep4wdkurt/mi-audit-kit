@@ -61,7 +61,8 @@ fi
 export maudReferenceFolder="${maudDataFolder}/reference"
 export maudStateDataFolder="${maudDataFolder}/state"
 export maudCountyDataFolder="${maudDataFolder}/county"
-export maudReportFolder="${maudDataFolder}/reports"	
+export maudReportFolder="${maudDataFolder}/reports"
+export maudNetworkReportFolder="${maudNetworkDataFolder}/reports"
 
 export maudTransitFolder="${maudDataFolder}/transit"
 export maudLogFolder="${maudTransitFolder}/log"		
