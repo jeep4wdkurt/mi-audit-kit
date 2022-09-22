@@ -36,7 +36,7 @@
 #
 #   History:
 #       Date        Version  Author         Desc
-#       2022.09.18  01.07    Kurt Schulte   Add aggregate schema
+#       2022.09.21  01.07    Kurt Schulte   Add aggregate schema, datasetIdShortText, datasetIdMediumText
 #       2022.09.16  01.06    Kurt Schulte   Add 2022-09-01
 #       2022.09.13  01.03    Kurt Schulte   Add reference dataset fields
 #       2022.09.03  01.02    Kurt Schulte   Add 2022-01-01, 2022-03-01, 2022-04-01, 2022-05-01, 2022-06-01 datasets
@@ -105,7 +105,9 @@ datasethist220901_goonKey="1RJVI_BOo-Ypdu60S3SOe5MhiKZWN7Dr_"	# https://drive.go
 #		datasetIdentifier		- dataset ID yyyy-mm-dd
 #		datasetDate				- Date of dataset yyyy-mm-dd
 #		datasetYear				- Year of dataset yyyy
-#		datasetIdShort			- yymmdd from dataset identifier
+#		datasetIdShort			- dataset identifier in yymmdd format
+#		datasetIdShortText		- dataset identifier in 'Mmm YY' format   (eg Jul 22)
+#		datasetIdMediumText		- dataset identifier in 'Mmm YYYY' format (eg Jul 2022)
 #		datasetElectionDate		- election date, derived from datasetDate
 #		datasetElectionYear		- election year, from datasetElectionDate
 #		datasetName				- EntireStateVoters-${datasetID}
@@ -119,7 +121,9 @@ datasethist220901_goonKey="1RJVI_BOo-Ypdu60S3SOe5MhiKZWN7Dr_"	# https://drive.go
 #		datasetGoonKey			- Location on Goon shares of dataset QVF archive.
 #		datasethistGoonKey		- Location on Goon shares of dataset Voter history archive.
 #		refDatasetIdentifier	- reference dataset ID yyyy-mm-dd
-#		refDatasetIdShort		- yymmdd from dataset identifier
+#		refDatasetIdShort		- reference dataset identifier in yymmdd format
+#		refDatasetIdShortText	- reference dataset identifier in 'Mmm YY' format   (eg Jul 22)
+#		refDatasetIdMediumText	- reference dataset identifier in 'Mmm YYYY' format (eg Jul 2022)
 #		refDatasetDate			- Date of dataset yyyy-mm-dd
 #		refDatasetYear			- Year of dataset yyyy
 # 
@@ -141,17 +145,22 @@ DatasetId_Validate() {
 
 	datasetIdShort="${datasetIdentifier:2}"
 	datasetIdShort="${datasetIdShort//-/}"
+	datasetIdShortText=$(date -d "${datasetDate}" '+%b %y')
+	datasetIdMediumText=$(date -d "${datasetDate}" '+%b %Y')
 
 	datasetYear="${datasetIdentifier:0:4}"
 	datasetElectionDate="2020-11-03"
 	[ $(("${datasetYear}" <= 2016)) == 1 ] && datasetElectionDate="2016-11-01"
 	datasetElectionYear="${datasetElectionDate:0:4}"
 	
+	
 	# Reference Dataset Fields
 	refDatasetIdentifier="${refDatasetID}"
 	refDatasetDate="${refDatasetIdentifier}"
 	refDatasetIdShort="${refDatasetIdentifier:2}"
 	refDatasetIdShort="${refDatasetIdShort//-/}"
+	refDatasetIdShortText=$(date -d "${refDatasetDate}" '+%b %y')
+	refDatasetIdMediumText=$(date -d "${refDatasetDate}" '+%b %Y')
 	refDatasetYear="${refDatasetIdentifier:0:4}"
 	
 	# Folders
