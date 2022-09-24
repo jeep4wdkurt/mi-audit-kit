@@ -12,5 +12,5 @@ No use without written authorization.
 ## History
 ```
     Date        Version    Author           Desc
-    2022.09.24  01.00.469  F. Kurt Schulte  Original Version
+    2022.09.24  01.00.470  F. Kurt Schulte  Original Version
 ```
