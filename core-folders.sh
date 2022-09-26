@@ -53,9 +53,11 @@ fi
 
 if [ "${OSTYPE}" == "linux-gnu" ] ;then
 	export maudDataFolder="/var/lib/mi-audit-data"
+	export maudLeechFolder="/var/lib/mi-audit-leech"
 else
 	export maudParentFolder="${maudRootFolder%/*}"
 	export maudDataFolder="${maudParentFolder}/mi-audit-data"
+	export maudLeechFolder="${maudParentFolder}/mi-audit-leech"
 fi
 
 export maudReferenceFolder="${maudDataFolder}/reference"
@@ -68,7 +70,6 @@ export maudTransitFolder="${maudDataFolder}/transit"
 export maudLogFolder="${maudTransitFolder}/log"		
 export maudInboundFolder="${maudTransitFolder}/inbound"		
 export maudOutboundFolder="${maudTransitFolder}/outbound"
-
 export maudWorkFolder="${maudTransitFolder}/work"
 
 export maudUserSharedFolder="/usr/share/mi-audit"
