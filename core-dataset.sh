@@ -9,6 +9,9 @@
 #
 #   Datasets:
 #       Dataset Date  Source  Goon Library  Add Date
+#       2013-06-01     001    maudelib003   2022.09.27
+#       2014-09-01     001    maudelib003   2022.09.27
+#       2015-10-01     001    maudelib003   2022.09.27
 #       2016-01-01     001    maudelib003   2022.09.25
 #       2016-09-01     001    maudelib001   2021.12.31
 #		2017-07-12     001    maudelib003   2022.09.25
@@ -42,7 +45,7 @@
 #
 #   History:
 #       Date        Version  Author         Desc
-#       2022.09.25  01.08    Kurt Schulte   Add 2016-01-01, 2017-05-12, 2017-10-31, 2019-10-01, 2021-10-01, 2021-12-01
+#       2022.09.25  01.08    Kurt Schulte   Add 2013-06-01, 2014-09-01,2015-10-01, 2016-01-01, 2017-05-12, 2017-10-31, 2019-10-01, 2021-10-01, 2021-12-01
 #       2022.09.21  01.07    Kurt Schulte   Add aggregate schema, datasetIdShortText, datasetIdMediumText
 #       2022.09.16  01.06    Kurt Schulte   Add 2022-09-01
 #       2022.09.13  01.03    Kurt Schulte   Add reference dataset fields
@@ -60,7 +63,7 @@ datasetList="${datasetList},2021-12-01,2021-10-01,2021-04-01,2021-01-01"
 datasetList="${datasetList},2020-12-01,2020-11-01,2020-10-01,2020-06-01,2020-03-01"
 datasetList="${datasetList},2019-10-01,2019-01-01"
 datasetList="${datasetList},2017-10-31,2017-05-12"
-datasetList="${datasetList},2016-09-01,2016-01-01,2000-01-01"
+datasetList="${datasetList},2016-09-01,2016-01-01,2015-10-01,2014-09-01,2013-06-01,2000-01-01"
 datasetCurrent="2022-09-01"
 datasetPrior="2022-08-01"
 datastoreList="common,specific,aggregate"
@@ -69,10 +72,13 @@ datasetHistoryObfuscationName="Corn-History"
 
 datasetGoonKeyNA="<na>"
 dataset000101_goonKey="1ZAOj4XUKhoyBQoUUXGOA1Bi_gMMUutZC"
-dataset160101_goonKey="<na>"		# 
+dataset130601_goonKey="<na>"		# 
+dataset140901_goonKey="<na>"		# 
+dataset151001_goonKey="1-wgEcjDF4sv5MEZ4UEhlsoxoSYSQxkge"		# https://drive.google.com/file/d/1-wgEcjDF4sv5MEZ4UEhlsoxoSYSQxkge/view?usp=sharing
+dataset160101_goonKey="1cFzEUKPRCA7W4vwxFbpcqcoF8hRNIF-z"		# https://drive.google.com/file/d/1cFzEUKPRCA7W4vwxFbpcqcoF8hRNIF-z/view?usp=sharing
 dataset160901_goonKey="1DzNC6V2aJAlAMdPfXuCekiIeUUGq2BIv"		# https://drive.google.com/file/d/1DzNC6V2aJAlAMdPfXuCekiIeUUGq2BIv/view?usp=sharing
-dataset170512_goonKey="<na>"		# 
-dataset171031_goonKey="<na>"		# 
+dataset170512_goonKey="1XcOHZLgJ8O-aJtJHwHpUVVCV799MNpLF"		# https://drive.google.com/file/d/1XcOHZLgJ8O-aJtJHwHpUVVCV799MNpLF/view?usp=sharing
+dataset171031_goonKey="1sOjZbtNuK5WRF5_I0Zch4vIkDGp0R7w0"		# https://drive.google.com/file/d/1sOjZbtNuK5WRF5_I0Zch4vIkDGp0R7w0/view?usp=sharing
 dataset190101_goonKey="1TSXSSHQdXiTRbIgWqJ4qHqujFwoSDfeg"		# https://drive.google.com/file/d/1TSXSSHQdXiTRbIgWqJ4qHqujFwoSDfeg/view?usp=sharing
 dataset191001_goonKey="1a6wS7wpBczb1geA24EaAPQzxfUzwWkXW"		# https://drive.google.com/file/d/1a6wS7wpBczb1geA24EaAPQzxfUzwWkXW/view?usp=sharing
 dataset200301_goonKey="1d8KHnEMv_M5hV8CRxEfn4p1HC_UyOABu"		# https://drive.google.com/file/d/1d8KHnEMv_M5hV8CRxEfn4p1HC_UyOABu/view?usp=sharing
@@ -93,10 +99,13 @@ dataset220601_goonKey="1Kz3uXQM_6lw4HhFY1sTnvSUKsQQIAGp8"		# https://drive.googl
 dataset220701_goonKey="1k_JXp6h-09jetHcEbRpyIMhV_LgV2dmM"		# https://drive.google.com/file/d/1k_JXp6h-09jetHcEbRpyIMhV_LgV2dmM/view?usp=sharing
 dataset220801_goonKey="1J7C7plGUzrlDc0hNkoAmQn8p7JvxteVu"		# https://drive.google.com/file/d/1J7C7plGUzrlDc0hNkoAmQn8p7JvxteVu/view?usp=sharing
 dataset220901_goonKey="1cO5lmI3e1xhPKE2_lvY1IJEPKzZL0U_S"		# https://drive.google.com/file/d/1cO5lmI3e1xhPKE2_lvY1IJEPKzZL0U_S/view?usp=sharing
-datasethist160101_goonKey="<na>"	# 
+datasethist130601_goonKey="<na>"	# 
+datasethist140901_goonKey="<na>"	# 
+datasethist151001_goonKey="1zZkJlxQ-LEJe0dRKLH7bgZpHbNi43gZl"	# https://drive.google.com/file/d/1zZkJlxQ-LEJe0dRKLH7bgZpHbNi43gZl/view?usp=sharing
+datasethist160101_goonKey="19gjXLuyNBiB5ElHZtZYHZ24EiSyYp62u"	# https://drive.google.com/file/d/19gjXLuyNBiB5ElHZtZYHZ24EiSyYp62u/view?usp=sharing
 datasethist160901_goonKey="1z9PfDtNxccRdjoWm7eN3nqAXvgb8CXxD"	# https://drive.google.com/file/d/1z9PfDtNxccRdjoWm7eN3nqAXvgb8CXxD/view?usp=sharing
-datasethist170512_goonKey="<na>"	# 
-datasethist171031_goonKey="<na>"	# 
+datasethist170512_goonKey="1hMPQKsYZ32wsVV6hmvegXSbieehJPZed"	# https://drive.google.com/file/d/1hMPQKsYZ32wsVV6hmvegXSbieehJPZed/view?usp=sharing
+datasethist171031_goonKey="1kXi_1SxpA4N1aXcR61F4rwzQG-fRF08C"	# https://drive.google.com/file/d/1kXi_1SxpA4N1aXcR61F4rwzQG-fRF08C/view?usp=sharing
 datasethist190101_goonKey="1wx5_xMTHKbq_LbYZkYBFaACcugxVB1P8"	# https://drive.google.com/file/d/1wx5_xMTHKbq_LbYZkYBFaACcugxVB1P8/view?usp=sharing
 datasethist191001_goonKey="1S6TQDqqBgc__O-e5tgawYOsOc41kQTe0"	# https://drive.google.com/file/d/1S6TQDqqBgc__O-e5tgawYOsOc41kQTe0/view?usp=sharing
 datasethist200301_goonKey="1jlEcQS6xeF_llPB29CrEYQpTrx-zdQyb"	# https://drive.google.com/file/d/1jlEcQS6xeF_llPB29CrEYQpTrx-zdQyb/view?usp=sharing
