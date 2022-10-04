@@ -68,7 +68,7 @@ maudUbergenBuildValues="${maudUbergenBuildValuesDefault}"
 [ -f "${maudUbergenBuildValuesLocal}" ] && maudUbergenBuildValues="${maudUbergenBuildValuesLocal}"
 
 # Constants
-ubergenMinimumVersion="01.04"
+ubergenMinimumVersion="01.05"
 
 
 #
