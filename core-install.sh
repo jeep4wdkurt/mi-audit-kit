@@ -234,7 +234,7 @@ ubergenProjectPull() {
 }
 
 #
-# Uninstall Ubergen Project, possibly based on version number
+# Uninstall Ubergen Project
 #
 ubergenProjectUninstall() {
 	local minVersion="$1"
@@ -248,23 +248,24 @@ ubergenProjectUninstall() {
 
 	if [ -d "${ubergenFolder}" ] ;then
 
-		# Determine if uninstall is needed
-		local needUninstall=1
-		if [ "${minVersion}" != "" ] ; then
-			installedVersion=$(cat "${ubergenVersionFile}" | grep 'UBERGEN_VERSION' | sed -e 's~^.*=~~;s~#.*~~;s~ \+$~~' )
-			errCode=$? ; [ $errCode -ne 0 ] &&
-				barfee "Can't read UberGen version file '${ubergenVersionFile}'"
-			[ "${installedVersion}" == "" ] && installedVersion=01.00
+		# # Determine if uninstall is needed
+		# local needUninstall=1
+		# if [ "${minVersion}" != "" ] ; then
+			# installedVersion=$(cat "${ubergenVersionFile}" | grep 'UBERGEN_VERSION' | sed -e 's~^.*=~~;s~#.*~~;s~ \+$~~' )
+			# errCode=$? ; [ $errCode -ne 0 ] &&
+				# barfee "Can't read UberGen version file '${ubergenVersionFile}'"
+			# [ "${installedVersion}" == "" ] && installedVersion=01.00
 
-			[ $(echo "${installedVersion}" | grep -c '^[0-9][0-9][.][0-9][0-9]$') -eq 0 ] &&
-				barfee "Bad installed version number format in UberGen version file '${ubergenVersionFile}', version='${installedVersion}'"
+			# [ $(echo "${installedVersion}" | grep -c '^[0-9][0-9][.][0-9][0-9]$') -eq 0 ] &&
+				# barfee "Bad installed version number format in UberGen version file '${ubergenVersionFile}', version='${installedVersion}'"
 				
-			versionCompare=$(perl -e "print (( ${installedVersion} < ${minVersion} ) ? "'"1":"0"); ')
-			errCode=$? ; [ $errCode -ne 0 ] && barfee "Can't test UberGen version. Code Error."
-			[ "${versionCompare}" == "0" ] && needUninstall=0
-		fi
+			# versionCompare=$(perl -e "print (( ${installedVersion} < ${minVersion} ) ? "'"1":"0"); ')
+			# errCode=$? ; [ $errCode -ne 0 ] && barfee "Can't test UberGen version. Code Error."
+			# [ "${versionCompare}" == "0" ] && needUninstall=0
+		# fi
 		
 		# Uninstall UberGen
+		needUninstall=1
 		if [ $needUninstall -ne 0 ] ; then
 			find "${ubergenFolder}" -type f -printf '"%p"\n' | xargs -L1 rm $verboseFlag
 			errCode=$? ; [ $errCode -ne 0 ] && barfee "Can't remove UberGen files(s)."
