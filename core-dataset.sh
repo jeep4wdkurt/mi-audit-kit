@@ -9,6 +9,7 @@
 #
 #   Datasets:
 #       Dataset Date  Source  Goon Library  Add Date
+#       2021-10-01     002    maudelib003   2022.10.09
 #       2013-06-01     001    maudelib003   2022.09.27
 #       2014-09-01     001    maudelib003   2022.09.27
 #       2015-10-01     001    maudelib003   2022.09.27
@@ -45,6 +46,7 @@
 #
 #   History:
 #       Date        Version  Author         Desc
+#       2022.10.09  01.09    Kurt Schulte   Add 2022-10-01
 #       2022.09.25  01.08    Kurt Schulte   Add 2013-06-01, 2014-09-01,2015-10-01, 2016-01-01, 2017-05-12, 2017-10-31, 2019-10-01, 2021-10-01, 2021-12-01
 #       2022.09.21  01.07    Kurt Schulte   Add aggregate schema, datasetIdShortText, datasetIdMediumText
 #       2022.09.16  01.06    Kurt Schulte   Add 2022-09-01
@@ -58,14 +60,14 @@
 # 
 # Constants
 #
-datasetList="2022-09-01,2022-08-01,2022-07-01,2022-06-01,2022-05-01,2022-04-01,2022-03-01,2022-02-01,2022-01-01"
+datasetList="2022-10-01,2022-09-01,2022-08-01,2022-07-01,2022-06-01,2022-05-01,2022-04-01,2022-03-01,2022-02-01,2022-01-01"
 datasetList="${datasetList},2021-12-01,2021-10-01,2021-04-01,2021-01-01"
 datasetList="${datasetList},2020-12-01,2020-11-01,2020-10-01,2020-06-01,2020-03-01"
 datasetList="${datasetList},2019-10-01,2019-01-01"
 datasetList="${datasetList},2017-10-31,2017-05-12"
 datasetList="${datasetList},2016-09-01,2016-01-01,2015-10-01,2014-09-01,2013-06-01,2000-01-01"
-datasetCurrent="2022-09-01"
-datasetPrior="2022-08-01"
+datasetCurrent=$(echo "${datasetList}" | cut -d, -f1)
+datasetPrior=$(echo "${datasetList}" | cut -d, -f1)
 datastoreList="common,specific,aggregate"
 datasetQvfObfuscationName="Corn-Data"
 datasetHistoryObfuscationName="Corn-History"
@@ -99,6 +101,7 @@ dataset220601_goonKey="1Kz3uXQM_6lw4HhFY1sTnvSUKsQQIAGp8"		# https://drive.googl
 dataset220701_goonKey="1k_JXp6h-09jetHcEbRpyIMhV_LgV2dmM"		# https://drive.google.com/file/d/1k_JXp6h-09jetHcEbRpyIMhV_LgV2dmM/view?usp=sharing
 dataset220801_goonKey="1J7C7plGUzrlDc0hNkoAmQn8p7JvxteVu"		# https://drive.google.com/file/d/1J7C7plGUzrlDc0hNkoAmQn8p7JvxteVu/view?usp=sharing
 dataset220901_goonKey="1cO5lmI3e1xhPKE2_lvY1IJEPKzZL0U_S"		# https://drive.google.com/file/d/1cO5lmI3e1xhPKE2_lvY1IJEPKzZL0U_S/view?usp=sharing
+dataset221001_goonKey="1zEpUVTCbCV4KDTLXi7vYd0WIApypagzq"		# https://drive.google.com/file/d/1zEpUVTCbCV4KDTLXi7vYd0WIApypagzq/view?usp=sharing
 datasethist130601_goonKey="1j1n3vu_nb_-Ki8edURHSJ3skFlUIC0Ej"	# https://drive.google.com/file/d/1j1n3vu_nb_-Ki8edURHSJ3skFlUIC0Ej/view?usp=sharing
 datasethist140901_goonKey="1ibku2sRDI9nuOvsNbBywELYkJBL76SGz"	# https://drive.google.com/file/d/1ibku2sRDI9nuOvsNbBywELYkJBL76SGz/view?usp=sharing
 datasethist151001_goonKey="1zZkJlxQ-LEJe0dRKLH7bgZpHbNi43gZl"	# https://drive.google.com/file/d/1zZkJlxQ-LEJe0dRKLH7bgZpHbNi43gZl/view?usp=sharing
@@ -126,6 +129,7 @@ datasethist220601_goonKey="1QbXmDqwdLbR_8G_Rw_aY2TiDQtrBtYMv"	# https://drive.go
 datasethist220701_goonKey="1WZC3b3KnnwSO_nWqVUyPwoQ-pMq0pCoh"	# https://drive.google.com/file/d/1WZC3b3KnnwSO_nWqVUyPwoQ-pMq0pCoh/view?usp=sharing
 datasethist220801_goonKey="1AiIEmy08g1558IKWXkmKKJjS6C5mBOA9"	# https://drive.google.com/file/d/1AiIEmy08g1558IKWXkmKKJjS6C5mBOA9/view?usp=sharing
 datasethist220901_goonKey="1RJVI_BOo-Ypdu60S3SOe5MhiKZWN7Dr_"	# https://drive.google.com/file/d/1RJVI_BOo-Ypdu60S3SOe5MhiKZWN7Dr_/view?usp=sharing
+datasethist221001_goonKey="1psDl_JnrQ3n6ELddOsj1LgWyGBVCRzNy"	# https://drive.google.com/file/d/1psDl_JnrQ3n6ELddOsj1LgWyGBVCRzNy/view?usp=sharing
 
 #  Validate a dataset ID (format yyyy-mm)
 #
